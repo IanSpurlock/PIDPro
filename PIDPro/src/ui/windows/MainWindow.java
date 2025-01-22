@@ -62,6 +62,9 @@ public class MainWindow extends ControllerWindow {
     private JCheckBox errSumResBox;
     private JLabel showPIDOutputLabel;
     private JCheckBox showPIDOutputBox;
+    private JLabel bgForceLabel;
+    private JSlider bgForceSlider;
+    private JTextField bgForceText;
     private JButton createBlockButton;
     private JToolBar mainToolbar;
 
@@ -101,6 +104,7 @@ public class MainWindow extends ControllerWindow {
         new SliderParameter("maxForce", maxForceSlider, maxForceText, ParameterConstants.DEFAULT_MAX_FORCE, true);
         new SliderParameter("mass", massSlider, massText, ParameterConstants.DEFAULT_MASS, true);
         new SliderParameter("friction", frictionSlider, frictionText, ParameterConstants.DEFAULT_FRICTION, true);
+        new SliderParameter("bgForce", bgForceSlider, bgForceText, ParameterConstants.DEFAULT_BG_FORCE, true);
         new SliderParameter("sensorDelay", sensorDelaySlider, sensorDelayText, ParameterConstants.DEFAULT_SENSOR_DELAY, true);
     }
 
@@ -127,7 +131,7 @@ public class MainWindow extends ControllerWindow {
         resetParams("runtime", "keepGraph", "showPID");
     }
     private void resetObjParams() {
-        resetParams("minForce", "maxForce", "mass", "friction", "sensorDelay");
+        resetParams("minForce", "maxForce", "mass", "friction", "bgForce", "sensorDelay");
     }
 
     /**

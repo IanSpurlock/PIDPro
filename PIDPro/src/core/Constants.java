@@ -4,9 +4,9 @@ import java.awt.*;
 
 public final class Constants {
     public static class WindowConstants {
-        public static final String WINDOW_TITLE = "PIDPro - PID Control Simulator - v1.0";
+        public static final String WINDOW_TITLE = "PIDPro - PID Control Simulator - v1.1";
         public static final String PARAM_WINDOW_TITLE = WINDOW_TITLE + " - Parameter Explanations";
-        public static final Dimension WINDOW_DIMS = new Dimension(800, 700);
+        public static final Dimension WINDOW_DIMS = new Dimension(800, 750);
     }
 
     public static class ParameterConstants {
@@ -27,12 +27,13 @@ public final class Constants {
         public static final double DEFAULT_MAX_FORCE = 10;
         public static final double DEFAULT_MASS = 1;
         public static final double DEFAULT_FRICTION = 1;
+        public static final double DEFAULT_BG_FORCE = 0;
         public static final double DEFAULT_SENSOR_DELAY = 0;
     }
 
     public static class ChartConstants {
         public static final String CHART_WINDOW_TITLE = "Position Output";
-        public static final Dimension CHART_WINDOW_DIMS = new Dimension(800, 700);
+        public static final Dimension CHART_WINDOW_DIMS = new Dimension(800, 750);
         public static final String POSITION_SERIES_KEY = "Position Data";
         public static final String PID_OUTPUT_SERIES_KEY = "PID Output Data";
         public static final String SETPOINT_SERIES_KEY = "Setpoint";

@@ -1,7 +1,6 @@
 package sim;
 
 import params.ControllerParameter;
-import params.SliderParameter;
 
 /**
  * This class handles the "controlled object", which can best be thought of as an
@@ -12,6 +11,7 @@ public class ControlledObject {
     public static double minForce = 0;
     public static double mass = 0;
     public static double frictionCoefficient = 0;
+    public static double backgroundForce = 0;
 
     public static double position = 0;
     public static double velocity = 0;
@@ -23,6 +23,7 @@ public class ControlledObject {
         minForce = ControllerParameter.getDouble("minForce");
         mass = ControllerParameter.getDouble("mass");
         frictionCoefficient = ControllerParameter.getDouble("friction");
+        backgroundForce = ControllerParameter.getDouble("bgForce");
 
         position = 0;
         velocity = 0;
@@ -34,11 +35,16 @@ public class ControlledObject {
      * @return the new position of the object rounded to three decimal places for simplicity and possible external use.
      */
     public static double processPhysics(double force) {
+        force += backgroundForce;
         if (Math.abs(force) < minForce) force = 0;
-        velocity += getDeltaTime() * (force / mass - frictionCoefficient * velocity);
 
+        velocity += getDeltaTime() * calculateAcceleration(force);
         position += getDeltaTime() * velocity;
         return toThreeDecimalPlaces(position);
+    }
+
+    private static double calculateAcceleration(double force) {
+        return force / mass - frictionCoefficient * velocity;
     }
 
     public static double toThreeDecimalPlaces(double value) {

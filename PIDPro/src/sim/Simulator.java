@@ -49,7 +49,7 @@ public class Simulator {
         ChartHandler.setpointSeries.add(runtime, PID.setpoint);
 
         // Simulation loop
-        for (int i = 1; i < runtime / ControlledObject.getDeltaTime(); i++) {
+        for (int i = 1; i <= runtime / ControlledObject.getDeltaTime(); i++) {
             double time = i * ControlledObject.getDeltaTime();
             double pidOutput = PID.calculate(getDelayedObjectPosition(i), time);
 
