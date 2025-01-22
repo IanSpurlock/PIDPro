@@ -10,6 +10,7 @@ public class PID {
     public static double kI = 0;
     public static double kD = 0;
     public static double errorSumThreshold = 0;
+    public static boolean errorSumReset = false;
     public static int setpoint = 0;
     public static double maxOutput = 0;
     public static boolean propOutput = false;
@@ -26,6 +27,7 @@ public class PID {
         kI = ControllerParameter.getDouble("kI");
         kD = ControllerParameter.getDouble("kD");
         errorSumThreshold = ControllerParameter.getDouble("iLimit");
+        errorSumReset = ControllerParameter.getBoolean("errSumRes");
         setpoint = ControllerParameter.getInt("setpoint");
         maxOutput = ControllerParameter.getDouble("maxForce");
         propOutput = ControllerParameter.getBoolean("propOutput");
@@ -45,6 +47,7 @@ public class PID {
 
         // I:
         if (Math.abs(error) < errorSumThreshold) errorSum += error * dt;
+        if (errorSumReset && errorSum != 0 && Math.signum(error) != Math.signum(errorSum)) errorSum = 0;
 
         // D:
         if (lastError != 0) errorRate = (error - lastError) / dt;

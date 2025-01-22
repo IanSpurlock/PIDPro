@@ -58,6 +58,8 @@ public class MainWindow extends ControllerWindow {
     private JCheckBox propOutBox;
     private JLabel keepGraphLabel;
     private JCheckBox keepGraphBox;
+    private JLabel errSumResLabel;
+    private JCheckBox errSumResBox;
     private JButton createBlockButton;
     private JToolBar mainToolbar;
 
@@ -85,6 +87,7 @@ public class MainWindow extends ControllerWindow {
         new SliderParameter("kI", kiSlider, kiText, ParameterConstants.DEFAULT_KI, true);
         new SliderParameter("kD", kdSlider, kdText, ParameterConstants.DEFAULT_KD, true);
         new SliderParameter("iLimit", iLimitSlider, iLimitText, ParameterConstants.DEFAULT_I_LIMIT, true);
+        new CheckBoxParameter("errSumRes", errSumResBox, ParameterConstants.DEFAULT_ERROR_SUM_RESET);
         new SliderParameter("setpoint", setpointSlider, setpointText, ParameterConstants.DEFAULT_SETPOINT, false);
         new CheckBoxParameter("propOutput", propOutBox, ParameterConstants.DEFAULT_PROP_OUTPUT);
 
@@ -115,7 +118,7 @@ public class MainWindow extends ControllerWindow {
         resetObjParams();
     }
     private void resetPIDParams() {
-        resetParams("kP", "kI", "kD", "iLimit", "setpoint", "propOutput");
+        resetParams("kP", "kI", "kD", "iLimit", "errSumRes", "setpoint", "propOutput");
     }
     private void resetSimParams() {
         resetParams("runtime", "keepGraph");

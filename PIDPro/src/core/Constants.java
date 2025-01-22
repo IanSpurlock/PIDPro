@@ -6,7 +6,7 @@ public final class Constants {
     public static class WindowConstants {
         public static final String WINDOW_TITLE = "PIDPro - PID Control Simulator - v1.0";
         public static final String PARAM_WINDOW_TITLE = WINDOW_TITLE + " - Parameter Explanations";
-        public static final Dimension WINDOW_DIMS = new Dimension(800, 650);
+        public static final Dimension WINDOW_DIMS = new Dimension(800, 700);
     }
 
     public static class ParameterConstants {
@@ -17,6 +17,7 @@ public final class Constants {
         public static final double DEFAULT_KI = 0;
         public static final double DEFAULT_KD = 0;
         public static final double DEFAULT_I_LIMIT = 1;
+        public static final boolean DEFAULT_ERROR_SUM_RESET = false;
         public static final int DEFAULT_SETPOINT = 4;
         public static final boolean DEFAULT_PROP_OUTPUT = false;
         public static final int DEFAULT_RUNTIME = 20;
@@ -30,7 +31,7 @@ public final class Constants {
 
     public static class ChartConstants {
         public static final String CHART_WINDOW_TITLE = "Position Output";
-        public static final Dimension CHART_WINDOW_DIMS = new Dimension(800, 650);
+        public static final Dimension CHART_WINDOW_DIMS = new Dimension(800, 700);
         public static final String POSITION_SERIES_KEY = "Position Data";
         public static final String PID_OUTPUT_SERIES_KEY = "PID Output Data";
         public static final String SETPOINT_SERIES_KEY = "Setpoint";
