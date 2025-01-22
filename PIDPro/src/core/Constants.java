@@ -22,6 +22,7 @@ public final class Constants {
         public static final boolean DEFAULT_PROP_OUTPUT = false;
         public static final int DEFAULT_RUNTIME = 20;
         public static final boolean DEFAULT_KEEP_GRAPH = false;
+        public static final boolean DEFAULT_SHOW_PID = false;
         public static final double DEFAULT_MIN_FORCE = 0.2;
         public static final double DEFAULT_MAX_FORCE = 10;
         public static final double DEFAULT_MASS = 1;
@@ -35,13 +36,20 @@ public final class Constants {
         public static final String POSITION_SERIES_KEY = "Position Data";
         public static final String PID_OUTPUT_SERIES_KEY = "PID Output Data";
         public static final String SETPOINT_SERIES_KEY = "Setpoint";
+        public static final String P_SERIES_KEY = "kP Value Data";
+        public static final String I_SERIES_KEY = "kI Value Data";
+        public static final String D_SERIES_KEY = "kD Value Data";
         public static final String CHART_TITLE = "Position v. Time:";
         public static final String X_AXIS_LABEL = "Time";
         public static final String Y_AXIS_LABEL = "Object Position / PID Output";
+        public static final float LINE_THICKNESS = 2.5f;
         public static final Color[] LINE_CHART_COLORS = {
-                new Color(230, 40, 40),
-                new Color(40, 110, 230),
-                new Color(40, 40, 40),
+                new Color(240, 40, 40),
+                new Color(40, 110, 240),
+                new Color(20, 20, 20),
+                new Color(21, 188, 21),
+                new Color(255, 115, 0),
+                new Color(170, 40, 210)
         };
     }
 }

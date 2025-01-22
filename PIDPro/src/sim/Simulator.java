@@ -3,7 +3,6 @@ package sim;
 import org.jfree.data.xy.XYDataItem;
 import params.ControllerParameter;
 import ui.ChartHandler;
-import params.SliderParameter;
 import ui.windows.DataOutputFrame;
 
 /**
@@ -52,7 +51,7 @@ public class Simulator {
         // Simulation loop
         for (int i = 1; i < runtime / ControlledObject.getDeltaTime(); i++) {
             double time = i * ControlledObject.getDeltaTime();
-            double pidOutput = PID.calculate(getDelayedObjectPosition(i));
+            double pidOutput = PID.calculate(getDelayedObjectPosition(i), time);
 
             ChartHandler.positionSeries.add(time, ControlledObject.processPhysics(pidOutput));
             ChartHandler.pidOutputSeries.add(time, pidOutput);

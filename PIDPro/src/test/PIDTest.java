@@ -19,7 +19,7 @@ class PIDTest {
     }
 
     private void checkPIDOutput(double expected) {
-        assertEquals(expected, PID.calculate(ControlledObject.position));
+        assertEquals(expected, PID.calculate(ControlledObject.position, 0));
     }
 
     /**

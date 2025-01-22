@@ -1,6 +1,7 @@
 package sim;
 
 import params.ControllerParameter;
+import ui.ChartHandler;
 
 /**
  * A class for handling the PID controller and its calculations.
@@ -41,7 +42,7 @@ public class PID {
      * Runs the PID calculation.
      * @return the output "power"
      */
-    public static double calculate(double position) {
+    public static double calculate(double position, double time) {
         double error = setpoint - position;
         double dt = ControlledObject.getDeltaTime();
 
@@ -54,7 +55,16 @@ public class PID {
         lastError = error;
 
         // Limit output:
-        double output = kP * error + kI * errorSum + kD * errorRate;
+        double pValue = kP * error;
+        double iValue = kI * errorSum;
+        double dValue = kD * errorRate;
+        if (ChartHandler.showPID) {
+            ChartHandler.pSeries.add(time, pValue);
+            ChartHandler.iSeries.add(time, iValue);
+            ChartHandler.dSeries.add(time, dValue);
+        }
+
+        double output = pValue + iValue + dValue;
         if (propOutput) output *= maxOutput;
         if (Math.abs(output) > maxOutput) output = Math.signum(output) * maxOutput;
 
