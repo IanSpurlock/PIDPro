@@ -17,6 +17,7 @@ public class PID extends ParameterBuilder {
     public static ControllerParameter<Double> maxOutput;
     public static ControllerParameter<Double> outputMultiplier;
 
+    public static double trueSetpoint = 0;
     public static double error = 0;
     public static double errorSum = 0;
     public static double errorRate = 0;
@@ -39,13 +40,20 @@ public class PID extends ParameterBuilder {
     }
 
     public static void resetState() {
+        trueSetpoint = wrapSetpointForPendulum();
         errorSum = 0;
         errorRate = 0;
         lastError = 0;
     }
 
+    private static double wrapSetpointForPendulum() {
+        return ControlledObject.isPendulum.value ?
+                (setpoint.value + Math.PI) % (2 * Math.PI) - Math.PI :
+                setpoint.value;
+    }
+
     public static double calculate(double position, double time) {
-        error = setpoint.value - position;
+        error = trueSetpoint - position;
 
         updateErrorSum();
         updateErrorRate();
@@ -54,19 +62,23 @@ public class PID extends ParameterBuilder {
 
         return calculateOutput();
     }
+
     private static void updateErrorSum() {
         if (Math.abs(error) < errorSumThreshold.value) errorSum += error * ControlledObject.getDeltaTime();
         if (errorSumReset.value && errorSum != 0 && Math.signum(error) != Math.signum(errorSum)) errorSum = 0;
     }
+
     private static void updateErrorRate() {
         if (lastError != 0) errorRate = (error - lastError) / ControlledObject.getDeltaTime();
         lastError = error;
     }
+
     private static void calculatePIDValues() {
         pValue = kP.value * error;
         iValue = kI.value * errorSum;
         dValue = kD.value * errorRate;
     }
+
     private static void updatePIDData(double time) {
         if (!ChartHandler.showPID.value) return;
 
@@ -74,6 +86,7 @@ public class PID extends ParameterBuilder {
         ChartHandler.iSeries.add(time, iValue);
         ChartHandler.dSeries.add(time, dValue);
     }
+
     private static double calculateOutput() {
         double output = pValue + iValue + dValue;
         double maxOut = maxOutput.value;

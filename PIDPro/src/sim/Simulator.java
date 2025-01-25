@@ -48,8 +48,8 @@ public class Simulator extends ParameterBuilder {
     private static void runSimulation() {
         ChartHandler.positionSeries.add(0, 0);
         ChartHandler.pidOutputSeries.add(0, 0);
-        ChartHandler.setpointSeries.add(0, PID.setpoint.value);
-        ChartHandler.setpointSeries.add(runtime.value, PID.setpoint.value);
+        ChartHandler.setpointSeries.add(0, PID.trueSetpoint);
+        ChartHandler.setpointSeries.add((int)runtime.value, PID.trueSetpoint);
 
         for (int i = 1; i <= runtime.value / ControlledObject.getDeltaTime(); i++) {
             double time = i * ControlledObject.getDeltaTime();

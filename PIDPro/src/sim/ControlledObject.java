@@ -34,7 +34,7 @@ public class ControlledObject extends ParameterBuilder {
     }
 
     public static double processPhysics(double force) {
-        force += backgroundForce.value;
+        force += backgroundForce.value + calculatePendulumForce();
         if (Math.abs(force) < minForce.value) force = 0;
 
         velocity += getDeltaTime() * calculateAcceleration(force);
@@ -44,6 +44,10 @@ public class ControlledObject extends ParameterBuilder {
 
     private static double calculateAcceleration(double force) {
         return force / mass.value - friction.value * velocity;
+    }
+
+    private static double calculatePendulumForce() {
+        return isPendulum.value ? -Math.sin(position) : 0;
     }
 
     public static double toThreeDecimalPlaces(double value) {
