@@ -26,6 +26,7 @@ public final class Constants {
         public static final double DEFAULT_OUTPUT_MULTIPLIER = 1;
 
         public static final boolean IS_PENDULUM = false;
+        public static final double START_POSITION = 0;
         public static final double DEFAULT_MIN_FORCE = 0.2;
         public static final double DEFAULT_MASS = 1;
         public static final double DEFAULT_FRICTION = 1;

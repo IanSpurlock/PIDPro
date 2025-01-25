@@ -40,6 +40,7 @@ public class MainWindow extends ControllerWindow {
     private JButton hdwParamResetButton;
     private JLabel outputMultLabel;
     private JLabel pendulumLabel;
+    private JLabel startPosLabel;
     private JButton paramHelp;
 
     public JSlider kpSlider;
@@ -73,6 +74,8 @@ public class MainWindow extends ControllerWindow {
     public JSlider outputMultSlider;
     public JTextField outputMultText;
     public JCheckBox pendulumBox;
+    public JSlider startPosSlider;
+    public JTextField startPosText;
 
     public static ArrayList<ControllerParameter<?>> pidParameters = new ArrayList<>();
     public static ArrayList<ControllerParameter<?>> hdwParameters = new ArrayList<>();

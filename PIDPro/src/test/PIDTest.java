@@ -6,7 +6,7 @@ import sim.PID;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class PIDTest extends SimulatorTest {
+class PIDTest extends BaseSimulatorTest {
     /**
      * If the error, errorSum, and errorRate are all 0, then the PID output should be 0.
      */

@@ -40,16 +40,10 @@ public class PID extends ParameterBuilder {
     }
 
     public static void resetState() {
-        trueSetpoint = wrapSetpointForPendulum();
+        trueSetpoint = Simulator.wrapPositionForPendulum(setpoint.value);
         errorSum = 0;
         errorRate = 0;
         lastError = 0;
-    }
-
-    private static double wrapSetpointForPendulum() {
-        return ControlledObject.isPendulum.value ?
-                (setpoint.value + Math.PI) % (2 * Math.PI) - Math.PI :
-                setpoint.value;
     }
 
     public static double calculate(double position, double time) {

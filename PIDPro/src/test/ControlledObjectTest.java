@@ -5,7 +5,7 @@ import sim.ControlledObject;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ControlledObjectTest extends SimulatorTest {
+class ControlledObjectTest extends BaseSimulatorTest {
     /**
      * When the object has a mass and friction of 1, an applied force of 1 should always
      * result in a change in position equal to deltaTime squared, assuming the minimum

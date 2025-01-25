@@ -45,8 +45,15 @@ public class Simulator extends ParameterBuilder {
         runningSimulation = false;
     }
 
+    private static void resetAllSimulatorStates() {
+        ChartHandler.resetData();
+        ControlledObject.resetObjectKinematics();
+        PID.resetState();
+        resetCalculations();
+    }
+
     private static void runSimulation() {
-        ChartHandler.positionSeries.add(0, 0);
+        ChartHandler.positionSeries.add(0, ControlledObject.trueStartPosition);
         ChartHandler.pidOutputSeries.add(0, 0);
         ChartHandler.setpointSeries.add(0, PID.trueSetpoint);
         ChartHandler.setpointSeries.add((int)runtime.value, PID.trueSetpoint);
@@ -71,10 +78,9 @@ public class Simulator extends ParameterBuilder {
         return (XYDataItem) ChartHandler.positionSeries.getItems().get(time);
     }
 
-    private static void resetAllSimulatorStates() {
-        ChartHandler.resetData();
-        ControlledObject.resetObjectKinematics();
-        PID.resetState();
-        resetCalculations();
+    public static double wrapPositionForPendulum(double position) {
+        if (!ControlledObject.isPendulum.value) return position;
+        // sign(pos) * ((|pos| + pi) % 2pi - pi)
+        return Math.signum(position) * ((Math.abs(position) + Math.PI) % (2 * Math.PI) - Math.PI);
     }
 }

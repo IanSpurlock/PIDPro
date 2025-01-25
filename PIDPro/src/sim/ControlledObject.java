@@ -12,16 +12,19 @@ import params.ParameterBuilder;
  */
 public class ControlledObject extends ParameterBuilder {
     public static ControllerParameter<Boolean> isPendulum;
+    public static ControllerParameter<Double> startPosition;
     public static ControllerParameter<Double> minForce;
     public static ControllerParameter<Double> mass;
     public static ControllerParameter<Double> friction;
     public static ControllerParameter<Double> backgroundForce;
 
+    public static double trueStartPosition = 0;
     public static double position = 0;
     public static double velocity = 0;
 
     public static void buildParameters(MainWindow window) {
         isPendulum = buildBooleanParameter(window.pendulumBox, ParameterConstants.IS_PENDULUM, C_OBJ);
+        startPosition = buildDoubleParameter(window.startPosSlider, window.startPosText, ParameterConstants.START_POSITION, C_OBJ);
         minForce = buildDoubleParameter(window.minForceSlider, window.minForceText, ParameterConstants.DEFAULT_MIN_FORCE, C_OBJ);
         mass = buildDoubleParameter(window.massSlider, window.massText, ParameterConstants.DEFAULT_MASS, C_OBJ);
         friction = buildDoubleParameter(window.frictionSlider, window.frictionText, ParameterConstants.DEFAULT_FRICTION, C_OBJ);
@@ -29,7 +32,8 @@ public class ControlledObject extends ParameterBuilder {
     }
 
     public static void resetObjectKinematics() {
-        position = 0;
+        trueStartPosition = Simulator.wrapPositionForPendulum(startPosition.value);
+        position = trueStartPosition;
         velocity = 0;
     }
 
