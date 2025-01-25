@@ -12,7 +12,7 @@ public class PID extends ParameterBuilder {
     public static ControllerParameter<Double> kD;
     public static ControllerParameter<Double> errorSumThreshold;
     public static ControllerParameter<Boolean> errorSumReset;
-    public static ControllerParameter<Integer> setpoint;
+    public static ControllerParameter<Double> setpoint;
     public static ControllerParameter<Boolean> propOutput;
     public static ControllerParameter<Double> maxOutput;
     public static ControllerParameter<Double> outputMultiplier;
@@ -33,7 +33,7 @@ public class PID extends ParameterBuilder {
         kD = buildDoubleParameter(window.kdSlider, window.kdText, ParameterConstants.DEFAULT_KD, C_PID);
         errorSumThreshold = buildDoubleParameter(window.iLimitSlider, window.iLimitText, ParameterConstants.DEFAULT_I_LIMIT, C_PID);
         errorSumReset = buildBooleanParameter(window.errSumResBox, ParameterConstants.DEFAULT_ERROR_SUM_RESET, C_PID);
-        setpoint = buildIntegerParameter(window.setpointSlider, window.setpointText, ParameterConstants.DEFAULT_SETPOINT, C_PID);
+        setpoint = buildDoubleParameter(window.setpointSlider, window.setpointText, ParameterConstants.DEFAULT_SETPOINT, C_PID);
         propOutput = buildBooleanParameter(window.propOutBox, ParameterConstants.DEFAULT_PROP_OUTPUT, C_PID);
         maxOutput = buildDoubleParameter(window.maxForceSlider, window.maxForceText, ParameterConstants.DEFAULT_MAX_FORCE, C_HDW);
         outputMultiplier = buildDoubleParameter(window.outputMultSlider, window.outputMultText, ParameterConstants.DEFAULT_OUTPUT_MULTIPLIER, C_HDW);

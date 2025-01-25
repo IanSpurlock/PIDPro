@@ -29,7 +29,7 @@ class PIDTest extends SimulatorTest {
         PID.kI.value = 1.0;
         PID.kD.value = 1.0;
         PID.errorSumThreshold.value = 1.0;
-        PID.setpoint.value = 1;
+        PID.setpoint.value = 1.0;
         PID.maxOutput.value = 1.0;
 
         PID.resetState();

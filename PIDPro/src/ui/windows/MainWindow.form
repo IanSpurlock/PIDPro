@@ -92,8 +92,8 @@
           <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <majorTickSpacing value="1"/>
-          <maximum value="10"/>
+          <majorTickSpacing value="20"/>
+          <maximum value="200"/>
           <minimum value="0"/>
           <minorTickSpacing value="0"/>
           <paintLabels value="false"/>
