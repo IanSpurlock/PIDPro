@@ -1,6 +1,8 @@
 # PIDPro
 A free and open-source PID controller demo.
 
+(README images are from v1.0)
+
 ## Overview
 PIDPro is a simple java application designed for learning how to use and tune a PID controller. 
 While this isn't designed to exactly simulate real-life behavior, it does implement many corollaries.
