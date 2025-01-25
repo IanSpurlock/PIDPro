@@ -17,10 +17,10 @@ public abstract class ControllerWindow extends JFrame {
         });
     }
 
-    protected void finishWindowSetup(Dimension dims, Container contentPane) {
+    protected void finishWindowSetup(Dimension dims, Container contentPane, boolean visible) {
         pack();
         setSize(dims);
-        setVisible(true);
+        setVisible(visible);
         setContentPane(contentPane);
     }
 

@@ -10,7 +10,7 @@ public class ParameterExplanationWindow extends ControllerWindow {
     public ParameterExplanationWindow() {
         super(Constants.WindowConstants.PARAM_WINDOW_TITLE);
 
-        finishWindowSetup(Constants.WindowConstants.WINDOW_DIMS, mainPanel);
+        finishWindowSetup(Constants.WindowConstants.WINDOW_DIMS, mainPanel, true);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
     }

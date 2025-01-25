@@ -8,7 +8,7 @@ import sim.Simulator;
 public class DataOutputFrame extends ControllerWindow {
     public DataOutputFrame(JFreeChart chart) {
         super(Constants.ChartConstants.CHART_WINDOW_TITLE);
-        finishWindowSetup(Constants.ChartConstants.CHART_WINDOW_DIMS, new ChartPanel(chart));
+        finishWindowSetup(Constants.ChartConstants.CHART_WINDOW_DIMS, new ChartPanel(chart), true);
     }
 
     @Override

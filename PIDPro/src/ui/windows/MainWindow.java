@@ -77,14 +77,14 @@ public class MainWindow extends ControllerWindow {
     public static ArrayList<ControllerParameter<?>> objParameters = new ArrayList<>();
     public static ArrayList<ControllerParameter<?>> simParameters = new ArrayList<>();
 
-    public MainWindow() {
+    public MainWindow(boolean visible) {
         super(WindowConstants.WINDOW_TITLE);
 
         ParameterBuilder.buildAllParameters(this);
         toolbarButtonsInit();
         parameterResetButtonsInit();
 
-        finishWindowSetup(WindowConstants.WINDOW_DIMS, mainPanel);
+        finishWindowSetup(WindowConstants.WINDOW_DIMS, mainPanel, visible);
         setLocationRelativeTo(null);
     }
 

@@ -5,7 +5,7 @@ import sim.ControlledObject;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ControlledObjectTest {
+class ControlledObjectTest extends SimulatorTest {
     /**
      * When the object has a mass and friction of 1, an applied force of 1 should always
      * result in a change in position equal to deltaTime squared, assuming the minimum
@@ -37,25 +37,17 @@ class ControlledObjectTest {
         testObjectPosition(0, 1.5);
     }
 
-    /**
-     * Checks if the object's position is correct after an applied force.
-     * @param expected the correct position
-     * @param force the force to apply
-     */
     private void testObjectPosition(double expected, double force) {
         assertEquals(expected, ControlledObject.processPhysics(force));
     }
 
-    /**
-     * Sets the object's characteristics to some preset values and resets the object's
-     * position and velocity before performing any tests.
-     */
     private void objectInit() {
+        initializeParametersForTests();
+
         ControlledObject.minForce.value = 0.2;
         ControlledObject.mass.value = 1.0;
         ControlledObject.friction.value = 1.0;
 
-        ControlledObject.position = 0;
-        ControlledObject.velocity = 0;
+        ControlledObject.resetObjectKinematics();
     }
 }
