@@ -38,7 +38,6 @@ public class Simulator extends ParameterBuilder {
         if (activeChartFrame != null) activeChartFrame.onWindowClose();
 
         resetAllSimulatorStates();
-
         runSimulation();
 
         DataOutputFrame frame = new DataOutputFrame(ChartHandler.createChart());

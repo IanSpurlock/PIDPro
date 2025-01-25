@@ -11,6 +11,7 @@ import params.ParameterBuilder;
  * output. However, its behavior is similar to that of other PID-controlled systems.
  */
 public class ControlledObject extends ParameterBuilder {
+    public static ControllerParameter<Boolean> isPendulum;
     public static ControllerParameter<Double> minForce;
     public static ControllerParameter<Double> mass;
     public static ControllerParameter<Double> friction;
@@ -20,6 +21,7 @@ public class ControlledObject extends ParameterBuilder {
     public static double velocity = 0;
 
     public static void buildParameters(MainWindow window) {
+        isPendulum = buildBooleanParameter(window.pendulumBox, ParameterConstants.IS_PENDULUM, C_OBJ);
         minForce = buildDoubleParameter(window.minForceSlider, window.minForceText, ParameterConstants.DEFAULT_MIN_FORCE, C_OBJ);
         mass = buildDoubleParameter(window.massSlider, window.massText, ParameterConstants.DEFAULT_MASS, C_OBJ);
         friction = buildDoubleParameter(window.frictionSlider, window.frictionText, ParameterConstants.DEFAULT_FRICTION, C_OBJ);

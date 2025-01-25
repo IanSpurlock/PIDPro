@@ -5,7 +5,7 @@ import java.awt.*;
 public final class Constants {
     public static class WindowConstants {
         public static final Dimension WINDOW_DIMS = new Dimension(700, 900);
-        public static final String WINDOW_TITLE = "PIDPro - PID Control Simulator - v1.2";
+        public static final String WINDOW_TITLE = "PIDPro - PID Control Simulator - v1.3";
         public static final String PARAM_WINDOW_TITLE = WINDOW_TITLE + " - Parameter Explanations";
     }
 
@@ -25,6 +25,7 @@ public final class Constants {
         public static final double DEFAULT_MAX_FORCE = 10;
         public static final double DEFAULT_OUTPUT_MULTIPLIER = 1;
 
+        public static final boolean IS_PENDULUM = false;
         public static final double DEFAULT_MIN_FORCE = 0.2;
         public static final double DEFAULT_MASS = 1;
         public static final double DEFAULT_FRICTION = 1;
