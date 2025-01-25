@@ -2,18 +2,17 @@ package params;
 
 import javax.swing.*;
 
-public class CheckBoxParameter extends ControllerParameter {
+public class CheckBoxParameter extends ControllerParameter<Boolean>{
     private final JCheckBox checkBox;
 
     /**
      * Creates a {@link ControllerParameter} that correlates to a parameter controlled by a JCheckBox.
      *
-     * @param parameterKey the parameter's key
      * @param checkBox the checkbox ui element
      * @param defaultValue the parameter's default value
      */
-    public CheckBoxParameter(String parameterKey, JCheckBox checkBox, boolean defaultValue) {
-        super(parameterKey, defaultValue);
+    public CheckBoxParameter(JCheckBox checkBox, boolean defaultValue, int parameterCategory) {
+        super(defaultValue, parameterCategory);
         this.checkBox = checkBox;
 
         checkBox.addChangeListener(e -> updateCheckBoxValue());
@@ -28,8 +27,7 @@ public class CheckBoxParameter extends ControllerParameter {
     }
 
     @Override
-    public void resetValue() {
-        value = defaultValue;
-        checkBox.setSelected((boolean) value);
+    protected void onResetValue() {
+        checkBox.setSelected(value);
     }
 }

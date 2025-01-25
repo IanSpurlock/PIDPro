@@ -31,7 +31,7 @@ class ControlledObjectTest {
     @Test
     void lessThanMinimumForceResponse() {
         objectInit();
-        ControlledObject.minForce = 2;
+        ControlledObject.minForce.value = 2.0;
 
         testObjectPosition(0, 1);
         testObjectPosition(0, 1.5);
@@ -51,9 +51,9 @@ class ControlledObjectTest {
      * position and velocity before performing any tests.
      */
     private void objectInit() {
-        ControlledObject.minForce = 0.2;
-        ControlledObject.mass = 1;
-        ControlledObject.frictionCoefficient = 1;
+        ControlledObject.minForce.value = 0.2;
+        ControlledObject.mass.value = 1.0;
+        ControlledObject.friction.value = 1.0;
 
         ControlledObject.position = 0;
         ControlledObject.velocity = 0;

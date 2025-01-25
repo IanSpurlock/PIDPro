@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="ui.windows.MainWindow">
-  <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="26" column-count="7" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="30" column-count="7" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="41" y="29" width="895" height="950"/>
+      <xy x="41" y="29" width="895" height="1084"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -45,11 +45,6 @@
           </component>
         </children>
       </toolbar>
-      <vspacer id="dac0b">
-        <constraints>
-          <grid row="25" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-        </constraints>
-      </vspacer>
       <component id="9bbb3" class="javax.swing.JSlider" binding="kpSlider">
         <constraints>
           <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
@@ -92,39 +87,6 @@
           <value value="0"/>
         </properties>
       </component>
-      <component id="feb39" class="javax.swing.JTextField" binding="kpText">
-        <constraints>
-          <grid row="2" column="4" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
-            <preferred-size width="50" height="-1"/>
-          </grid>
-        </constraints>
-        <properties>
-          <editable value="false"/>
-          <text value=""/>
-        </properties>
-      </component>
-      <component id="168" class="javax.swing.JTextField" binding="kiText">
-        <constraints>
-          <grid row="3" column="4" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
-            <preferred-size width="50" height="-1"/>
-          </grid>
-        </constraints>
-        <properties>
-          <editable value="false"/>
-          <text value=""/>
-        </properties>
-      </component>
-      <component id="5bc57" class="javax.swing.JTextField" binding="kdText">
-        <constraints>
-          <grid row="4" column="4" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
-            <preferred-size width="50" height="-1"/>
-          </grid>
-        </constraints>
-        <properties>
-          <editable value="false"/>
-          <text value=""/>
-        </properties>
-      </component>
       <component id="9e6b7" class="javax.swing.JSlider" binding="setpointSlider">
         <constraints>
           <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
@@ -140,20 +102,9 @@
           <value value="0"/>
         </properties>
       </component>
-      <component id="86c02" class="javax.swing.JTextField" binding="setpointText">
-        <constraints>
-          <grid row="7" column="4" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
-            <preferred-size width="50" height="-1"/>
-          </grid>
-        </constraints>
-        <properties>
-          <editable value="false"/>
-          <text value=""/>
-        </properties>
-      </component>
       <component id="127c2" class="javax.swing.JSlider" binding="runtimeSlider">
         <constraints>
-          <grid row="12" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="25" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <majorTickSpacing value="5"/>
@@ -168,7 +119,7 @@
       </component>
       <component id="73642" class="javax.swing.JTextField" binding="runtimeText">
         <constraints>
-          <grid row="12" column="4" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
+          <grid row="25" column="4" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
             <preferred-size width="50" height="-1"/>
           </grid>
         </constraints>
@@ -185,14 +136,6 @@
           <text value="PID Parameters:"/>
         </properties>
       </component>
-      <component id="90c63" class="javax.swing.JLabel" binding="simParamsLabel">
-        <constraints>
-          <grid row="11" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Simulation Parameters:"/>
-        </properties>
-      </component>
       <component id="33a64" class="javax.swing.JSlider" binding="iLimitSlider">
         <constraints>
           <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
@@ -205,119 +148,6 @@
           <paintTicks value="true"/>
           <snapToTicks value="false"/>
           <value value="0"/>
-        </properties>
-      </component>
-      <component id="ef879" class="javax.swing.JTextField" binding="iLimitText">
-        <constraints>
-          <grid row="5" column="4" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
-            <preferred-size width="50" height="-1"/>
-          </grid>
-        </constraints>
-        <properties>
-          <editable value="false"/>
-          <text value=""/>
-        </properties>
-      </component>
-      <component id="abcbc" class="javax.swing.JSlider" binding="minForceSlider">
-        <constraints>
-          <grid row="18" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <majorTickSpacing value="20"/>
-          <maximum value="100"/>
-          <minorTickSpacing value="0"/>
-          <paintLabels value="false"/>
-          <paintTicks value="true"/>
-          <snapToTicks value="false"/>
-          <value value="0"/>
-        </properties>
-      </component>
-      <component id="4effb" class="javax.swing.JTextField" binding="minForceText">
-        <constraints>
-          <grid row="18" column="4" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
-            <preferred-size width="50" height="-1"/>
-          </grid>
-        </constraints>
-        <properties>
-          <editable value="false"/>
-          <text value=""/>
-        </properties>
-      </component>
-      <component id="51d93" class="javax.swing.JSlider" binding="maxForceSlider">
-        <constraints>
-          <grid row="19" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <majorTickSpacing value="20"/>
-          <maximum value="600"/>
-          <minorTickSpacing value="0"/>
-          <paintLabels value="false"/>
-          <paintTicks value="true"/>
-          <snapToTicks value="false"/>
-          <value value="0"/>
-        </properties>
-      </component>
-      <component id="8df91" class="javax.swing.JTextField" binding="maxForceText">
-        <constraints>
-          <grid row="19" column="4" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
-            <preferred-size width="50" height="-1"/>
-          </grid>
-        </constraints>
-        <properties>
-          <editable value="false"/>
-          <text value=""/>
-        </properties>
-      </component>
-      <component id="9a45a" class="javax.swing.JSlider" binding="massSlider">
-        <constraints>
-          <grid row="20" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <majorTickSpacing value="20"/>
-          <maximum value="100"/>
-          <minimum value="20"/>
-          <minorTickSpacing value="0"/>
-          <paintLabels value="false"/>
-          <paintTicks value="true"/>
-          <snapToTicks value="false"/>
-          <value value="20"/>
-          <valueIsAdjusting value="false"/>
-        </properties>
-      </component>
-      <component id="98a81" class="javax.swing.JTextField" binding="massText">
-        <constraints>
-          <grid row="20" column="4" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
-            <preferred-size width="50" height="-1"/>
-          </grid>
-        </constraints>
-        <properties>
-          <editable value="false"/>
-          <text value=""/>
-        </properties>
-      </component>
-      <component id="fdcd2" class="javax.swing.JSlider" binding="frictionSlider">
-        <constraints>
-          <grid row="21" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <majorTickSpacing value="20"/>
-          <maximum value="100"/>
-          <minorTickSpacing value="0"/>
-          <paintLabels value="false"/>
-          <paintTicks value="true"/>
-          <snapToTicks value="false"/>
-          <value value="0"/>
-        </properties>
-      </component>
-      <component id="7d234" class="javax.swing.JTextField" binding="frictionText">
-        <constraints>
-          <grid row="21" column="4" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
-            <preferred-size width="50" height="-1"/>
-          </grid>
-        </constraints>
-        <properties>
-          <editable value="false"/>
-          <text value=""/>
         </properties>
       </component>
       <component id="de1ed" class="javax.swing.JLabel" binding="kpLabel">
@@ -362,47 +192,15 @@
       </component>
       <component id="1e3cb" class="javax.swing.JLabel" binding="runtimeLabel">
         <constraints>
-          <grid row="12" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="25" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Runtime:"/>
         </properties>
       </component>
-      <component id="e5155" class="javax.swing.JLabel" binding="minForceLabel">
-        <constraints>
-          <grid row="18" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Min Force:"/>
-        </properties>
-      </component>
-      <component id="15e0e" class="javax.swing.JLabel" binding="massLabel">
-        <constraints>
-          <grid row="20" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Mass:"/>
-        </properties>
-      </component>
-      <component id="28aa" class="javax.swing.JLabel" binding="frictionLabel">
-        <constraints>
-          <grid row="21" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Friction:"/>
-        </properties>
-      </component>
-      <component id="109d5" class="javax.swing.JLabel" binding="controlledObjParamsLabel">
-        <constraints>
-          <grid row="17" column="1" row-span="1" col-span="5" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Controlled Object Parameters:"/>
-        </properties>
-      </component>
       <component id="9ebab" class="javax.swing.JButton" binding="simParamResetButton">
         <constraints>
-          <grid row="15" column="1" row-span="1" col-span="4" vsize-policy="3" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="28" column="1" row-span="1" col-span="4" vsize-policy="3" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <focusPainted value="false"/>
@@ -420,24 +218,9 @@
           <text value="Reset PID Parameters"/>
         </properties>
       </component>
-      <component id="124be" class="javax.swing.JButton" binding="objParamResetButton">
-        <constraints>
-          <grid row="24" column="1" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <focusPainted value="false"/>
-          <focusable value="false"/>
-          <text value="Reset Object Parameters"/>
-        </properties>
-      </component>
       <vspacer id="55d18">
         <constraints>
           <grid row="10" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-        </constraints>
-      </vspacer>
-      <vspacer id="afe84">
-        <constraints>
-          <grid row="16" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
         </constraints>
       </vspacer>
       <hspacer id="3e8a5">
@@ -445,47 +228,6 @@
           <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
       </hspacer>
-      <component id="68137" class="javax.swing.JLabel" binding="maxForceLabel">
-        <constraints>
-          <grid row="19" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Max Force:"/>
-        </properties>
-      </component>
-      <component id="d8dbf" class="javax.swing.JLabel" binding="sensorDelayLabel">
-        <constraints>
-          <grid row="23" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Sensor Delay:"/>
-        </properties>
-      </component>
-      <component id="38bbd" class="javax.swing.JSlider" binding="sensorDelaySlider">
-        <constraints>
-          <grid row="23" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <majorTickSpacing value="20"/>
-          <maximum value="100"/>
-          <minorTickSpacing value="0"/>
-          <paintLabels value="false"/>
-          <paintTicks value="true"/>
-          <snapToTicks value="false"/>
-          <value value="0"/>
-        </properties>
-      </component>
-      <component id="3da1f" class="javax.swing.JTextField" binding="sensorDelayText">
-        <constraints>
-          <grid row="23" column="4" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
-            <preferred-size width="50" height="-1"/>
-          </grid>
-        </constraints>
-        <properties>
-          <editable value="false"/>
-          <text value=""/>
-        </properties>
-      </component>
       <component id="e6489" class="javax.swing.JLabel" binding="propOutLabel">
         <constraints>
           <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
@@ -504,7 +246,7 @@
       </component>
       <component id="5c8fd" class="javax.swing.JLabel" binding="keepGraphLabel">
         <constraints>
-          <grid row="13" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="26" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Keep Graph:"/>
@@ -512,7 +254,7 @@
       </component>
       <component id="feea9" class="javax.swing.JCheckBox" binding="keepGraphBox">
         <constraints>
-          <grid row="13" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="26" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value=""/>
@@ -536,7 +278,7 @@
       </component>
       <component id="8db15" class="javax.swing.JLabel" binding="showPIDOutputLabel">
         <constraints>
-          <grid row="14" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="27" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="PID Outputs:"/>
@@ -544,15 +286,273 @@
       </component>
       <component id="99296" class="javax.swing.JCheckBox" binding="showPIDOutputBox">
         <constraints>
-          <grid row="14" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="27" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value=""/>
         </properties>
       </component>
+      <component id="afc59" class="javax.swing.JLabel" binding="hwLabel">
+        <constraints>
+          <grid row="11" column="1" row-span="1" col-span="5" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Hardware Parameters"/>
+        </properties>
+      </component>
+      <component id="68137" class="javax.swing.JLabel" binding="maxForceLabel">
+        <constraints>
+          <grid row="12" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Max Force:"/>
+        </properties>
+      </component>
+      <component id="51d93" class="javax.swing.JSlider" binding="maxForceSlider">
+        <constraints>
+          <grid row="12" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <majorTickSpacing value="20"/>
+          <maximum value="600"/>
+          <minorTickSpacing value="0"/>
+          <paintLabels value="false"/>
+          <paintTicks value="true"/>
+          <snapToTicks value="false"/>
+          <value value="0"/>
+        </properties>
+      </component>
+      <component id="8df91" class="javax.swing.JTextField" binding="maxForceText">
+        <constraints>
+          <grid row="12" column="3" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="50" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <editable value="false"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="d8dbf" class="javax.swing.JLabel" binding="sensorDelayLabel">
+        <constraints>
+          <grid row="14" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Sensor Delay:"/>
+        </properties>
+      </component>
+      <component id="38bbd" class="javax.swing.JSlider" binding="sensorDelaySlider">
+        <constraints>
+          <grid row="14" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <majorTickSpacing value="20"/>
+          <maximum value="100"/>
+          <minorTickSpacing value="0"/>
+          <paintLabels value="false"/>
+          <paintTicks value="true"/>
+          <snapToTicks value="false"/>
+          <value value="0"/>
+        </properties>
+      </component>
+      <component id="3da1f" class="javax.swing.JTextField" binding="sensorDelayText">
+        <constraints>
+          <grid row="14" column="3" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="50" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <editable value="false"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="b8654" class="javax.swing.JButton" binding="hdwParamResetButton">
+        <constraints>
+          <grid row="15" column="1" row-span="1" col-span="4" vsize-policy="3" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <focusPainted value="false"/>
+          <focusable value="false"/>
+          <text value="Reset Hardware Parameters"/>
+        </properties>
+      </component>
+      <component id="109d5" class="javax.swing.JLabel" binding="controlledObjParamsLabel">
+        <constraints>
+          <grid row="17" column="1" row-span="1" col-span="5" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Controlled Object Parameters:"/>
+        </properties>
+      </component>
+      <component id="e5155" class="javax.swing.JLabel" binding="minForceLabel">
+        <constraints>
+          <grid row="18" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Min Force:"/>
+        </properties>
+      </component>
+      <component id="abcbc" class="javax.swing.JSlider" binding="minForceSlider">
+        <constraints>
+          <grid row="18" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <majorTickSpacing value="20"/>
+          <maximum value="100"/>
+          <minorTickSpacing value="0"/>
+          <paintLabels value="false"/>
+          <paintTicks value="true"/>
+          <snapToTicks value="false"/>
+          <value value="0"/>
+        </properties>
+      </component>
+      <component id="4effb" class="javax.swing.JTextField" binding="minForceText">
+        <constraints>
+          <grid row="18" column="3" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="50" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <editable value="false"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="15e0e" class="javax.swing.JLabel" binding="massLabel">
+        <constraints>
+          <grid row="19" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Mass:"/>
+        </properties>
+      </component>
+      <component id="9a45a" class="javax.swing.JSlider" binding="massSlider">
+        <constraints>
+          <grid row="19" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <majorTickSpacing value="20"/>
+          <maximum value="100"/>
+          <minimum value="20"/>
+          <minorTickSpacing value="0"/>
+          <paintLabels value="false"/>
+          <paintTicks value="true"/>
+          <snapToTicks value="false"/>
+          <value value="20"/>
+          <valueIsAdjusting value="false"/>
+        </properties>
+      </component>
+      <component id="98a81" class="javax.swing.JTextField" binding="massText">
+        <constraints>
+          <grid row="19" column="3" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="50" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <editable value="false"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="feb39" class="javax.swing.JTextField" binding="kpText">
+        <constraints>
+          <grid row="2" column="3" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="50" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <editable value="false"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="168" class="javax.swing.JTextField" binding="kiText">
+        <constraints>
+          <grid row="3" column="3" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="50" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <editable value="false"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="5bc57" class="javax.swing.JTextField" binding="kdText">
+        <constraints>
+          <grid row="4" column="3" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="50" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <editable value="false"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="ef879" class="javax.swing.JTextField" binding="iLimitText">
+        <constraints>
+          <grid row="5" column="3" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="50" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <editable value="false"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="86c02" class="javax.swing.JTextField" binding="setpointText">
+        <constraints>
+          <grid row="7" column="3" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="50" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <editable value="false"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <vspacer id="dac0b">
+        <constraints>
+          <grid row="16" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+      <vspacer id="38886">
+        <constraints>
+          <grid row="29" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+      <component id="28aa" class="javax.swing.JLabel" binding="frictionLabel">
+        <constraints>
+          <grid row="20" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Friction:"/>
+        </properties>
+      </component>
+      <component id="fdcd2" class="javax.swing.JSlider" binding="frictionSlider">
+        <constraints>
+          <grid row="20" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <majorTickSpacing value="20"/>
+          <maximum value="100"/>
+          <minorTickSpacing value="0"/>
+          <paintLabels value="false"/>
+          <paintTicks value="true"/>
+          <snapToTicks value="false"/>
+          <value value="0"/>
+        </properties>
+      </component>
+      <component id="7d234" class="javax.swing.JTextField" binding="frictionText">
+        <constraints>
+          <grid row="20" column="3" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="50" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <editable value="false"/>
+          <text value=""/>
+        </properties>
+      </component>
       <component id="c382a" class="javax.swing.JLabel" binding="bgForceLabel">
         <constraints>
-          <grid row="22" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="21" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="BG Force:"/>
@@ -560,7 +560,7 @@
       </component>
       <component id="ecd2a" class="javax.swing.JSlider" binding="bgForceSlider">
         <constraints>
-          <grid row="22" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="21" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <majorTickSpacing value="20"/>
@@ -575,7 +575,7 @@
       </component>
       <component id="2be0" class="javax.swing.JTextField" binding="bgForceText">
         <constraints>
-          <grid row="22" column="4" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
+          <grid row="21" column="3" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
             <preferred-size width="50" height="-1"/>
           </grid>
         </constraints>
@@ -584,6 +584,62 @@
           <text value=""/>
         </properties>
       </component>
+      <component id="90c63" class="javax.swing.JLabel" binding="simParamsLabel">
+        <constraints>
+          <grid row="24" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Simulation Parameters:"/>
+        </properties>
+      </component>
+      <component id="1afa0" class="javax.swing.JButton" binding="objParamResetButton">
+        <constraints>
+          <grid row="22" column="1" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <focusPainted value="false"/>
+          <focusable value="false"/>
+          <text value="Reset Controlled Object Parameters"/>
+        </properties>
+      </component>
+      <component id="88ace" class="javax.swing.JLabel" binding="outputMultLabel">
+        <constraints>
+          <grid row="13" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Output Mult:"/>
+        </properties>
+      </component>
+      <component id="2ffa1" class="javax.swing.JSlider" binding="outputMultSlider">
+        <constraints>
+          <grid row="13" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <majorTickSpacing value="20"/>
+          <maximum value="200"/>
+          <minorTickSpacing value="0"/>
+          <paintLabels value="false"/>
+          <paintTicks value="true"/>
+          <snapToTicks value="false"/>
+          <value value="0"/>
+        </properties>
+      </component>
+      <component id="369bd" class="javax.swing.JTextField" binding="outputMultText">
+        <constraints>
+          <grid row="13" column="3" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="50" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <editable value="false"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <vspacer id="f3d14">
+        <constraints>
+          <grid row="23" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
     </children>
   </grid>
 </form>

@@ -11,9 +11,6 @@ public class DataOutputFrame extends ControllerWindow {
         finishWindowSetup(Constants.ChartConstants.CHART_WINDOW_DIMS, new ChartPanel(chart));
     }
 
-    /**
-     * Set the active chart frame to null and dispose the window.
-     */
     @Override
     public void onWindowClose() {
         Simulator.activeChartFrame = null;

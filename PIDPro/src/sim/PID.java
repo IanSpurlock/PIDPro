@@ -1,73 +1,86 @@
 package sim;
 
+import core.Constants.ParameterConstants;
 import params.ControllerParameter;
 import ui.ChartHandler;
+import params.ParameterBuilder;
+import ui.windows.MainWindow;
 
-/**
- * A class for handling the PID controller and its calculations.
- */
-public class PID {
-    public static double kP = 0;
-    public static double kI = 0;
-    public static double kD = 0;
-    public static double errorSumThreshold = 0;
-    public static boolean errorSumReset = false;
-    public static int setpoint = 0;
-    public static double maxOutput = 0;
-    public static boolean propOutput = false;
+public class PID extends ParameterBuilder {
+    public static ControllerParameter<Double> kP;
+    public static ControllerParameter<Double> kI;
+    public static ControllerParameter<Double> kD;
+    public static ControllerParameter<Double> errorSumThreshold;
+    public static ControllerParameter<Boolean> errorSumReset;
+    public static ControllerParameter<Integer> setpoint;
+    public static ControllerParameter<Boolean> propOutput;
+    public static ControllerParameter<Double> maxOutput;
+    public static ControllerParameter<Double> outputMultiplier;
 
+    public static double error = 0;
     public static double errorSum = 0;
     public static double errorRate = 0;
     public static double lastError = 0;
 
-    /**
-     * Retrieves and updates the controller's characteristics from its corresponding parameters.
-     */
-    public static void setPIDValues() {
-        kP = ControllerParameter.getDouble("kP");
-        kI = ControllerParameter.getDouble("kI");
-        kD = ControllerParameter.getDouble("kD");
-        errorSumThreshold = ControllerParameter.getDouble("iLimit");
-        errorSumReset = ControllerParameter.getBoolean("errSumRes");
-        setpoint = ControllerParameter.getInt("setpoint");
-        maxOutput = ControllerParameter.getDouble("maxForce");
-        propOutput = ControllerParameter.getBoolean("propOutput");
+    public static double pValue = 0;
+    public static double iValue = 0;
+    public static double dValue = 0;
 
+    public static void buildParameters(MainWindow window) {
+        kP = buildDoubleParameter(window.kpSlider, window.kpText, ParameterConstants.DEFAULT_KP, C_PID);
+        kI = buildDoubleParameter(window.kiSlider, window.kiText, ParameterConstants.DEFAULT_KI, C_PID);
+        kD = buildDoubleParameter(window.kdSlider, window.kdText, ParameterConstants.DEFAULT_KD, C_PID);
+        errorSumThreshold = buildDoubleParameter(window.iLimitSlider, window.iLimitText, ParameterConstants.DEFAULT_I_LIMIT, C_PID);
+        errorSumReset = buildBooleanParameter(window.errSumResBox, ParameterConstants.DEFAULT_ERROR_SUM_RESET, C_PID);
+        setpoint = buildIntegerParameter(window.setpointSlider, window.setpointText, ParameterConstants.DEFAULT_SETPOINT, C_PID);
+        propOutput = buildBooleanParameter(window.propOutBox, ParameterConstants.DEFAULT_PROP_OUTPUT, C_PID);
+        maxOutput = buildDoubleParameter(window.maxForceSlider, window.maxForceText, ParameterConstants.DEFAULT_MAX_FORCE, C_HDW);
+        outputMultiplier = buildDoubleParameter(window.outputMultSlider, window.outputMultText, ParameterConstants.DEFAULT_OUTPUT_MULTIPLIER, C_HDW);
+    }
+
+    public static void resetState() {
         errorSum = 0;
         errorRate = 0;
         lastError = 0;
     }
 
-    /**
-     * Runs the PID calculation.
-     * @return the output "power"
-     */
     public static double calculate(double position, double time) {
-        double error = setpoint - position;
-        double dt = ControlledObject.getDeltaTime();
+        error = setpoint.value - position;
 
-        // I:
-        if (Math.abs(error) < errorSumThreshold) errorSum += error * dt;
-        if (errorSumReset && errorSum != 0 && Math.signum(error) != Math.signum(errorSum)) errorSum = 0;
+        updateErrorSum();
+        updateErrorRate();
+        calculatePIDValues();
+        updatePIDData(time);
 
-        // D:
-        if (lastError != 0) errorRate = (error - lastError) / dt;
+        return calculateOutput();
+    }
+    private static void updateErrorSum() {
+        if (Math.abs(error) < errorSumThreshold.value) errorSum += error * ControlledObject.getDeltaTime();
+        if (errorSumReset.value && errorSum != 0 && Math.signum(error) != Math.signum(errorSum)) errorSum = 0;
+    }
+    private static void updateErrorRate() {
+        if (lastError != 0) errorRate = (error - lastError) / ControlledObject.getDeltaTime();
         lastError = error;
+    }
+    private static void calculatePIDValues() {
+        pValue = kP.value * error;
+        iValue = kI.value * errorSum;
+        dValue = kD.value * errorRate;
+    }
+    private static void updatePIDData(double time) {
+        if (!ChartHandler.showPID.value) return;
 
-        // Limit output:
-        double pValue = kP * error;
-        double iValue = kI * errorSum;
-        double dValue = kD * errorRate;
-        if (ChartHandler.showPID) {
-            ChartHandler.pSeries.add(time, pValue);
-            ChartHandler.iSeries.add(time, iValue);
-            ChartHandler.dSeries.add(time, dValue);
-        }
-
+        ChartHandler.pSeries.add(time, pValue);
+        ChartHandler.iSeries.add(time, iValue);
+        ChartHandler.dSeries.add(time, dValue);
+    }
+    private static double calculateOutput() {
         double output = pValue + iValue + dValue;
-        if (propOutput) output *= maxOutput;
-        if (Math.abs(output) > maxOutput) output = Math.signum(output) * maxOutput;
+        double maxOut = maxOutput.value;
 
-        return output;
+        if (propOutput.value) output *= maxOut;
+        if (Math.abs(output) > maxOut) output = Math.signum(output) * maxOut;
+
+        return output * outputMultiplier.value;
     }
 }

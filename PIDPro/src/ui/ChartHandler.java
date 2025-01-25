@@ -1,5 +1,6 @@
 package ui;
 
+import core.Constants.ParameterConstants;
 import core.Constants.ChartConstants;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
@@ -8,14 +9,13 @@ import org.jfree.chart.renderer.xy.XYItemRenderer;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 import params.ControllerParameter;
+import params.ParameterBuilder;
+import ui.windows.MainWindow;
 
 import java.awt.*;
 
-/**
- * A class for displaying the simulation data.
- */
-public class ChartHandler {
-    public static boolean showPID;
+public class ChartHandler extends ParameterBuilder {
+    public static ControllerParameter<Boolean> showPID;
 
     public static XYSeries positionSeries;
     public static XYSeries pidOutputSeries;
@@ -24,32 +24,27 @@ public class ChartHandler {
     public static XYSeries iSeries;
     public static XYSeries dSeries;
 
-    /**
-     * Reset the data.
-     */
-    public static void init() {
-        showPID = ControllerParameter.getBoolean("showPID");
+    public static void buildParameters(MainWindow window) {
+        showPID = buildBooleanParameter(window.showPIDOutputBox, ParameterConstants.DEFAULT_SHOW_PID, C_SIM);
+    }
 
+    public static void resetData() {
         positionSeries = new XYSeries(ChartConstants.POSITION_SERIES_KEY);
         pidOutputSeries = new XYSeries(ChartConstants.PID_OUTPUT_SERIES_KEY);
         setpointSeries = new XYSeries(ChartConstants.SETPOINT_SERIES_KEY);
-        if (showPID) {
+        if (showPID.value) {
             pSeries = new XYSeries(ChartConstants.P_SERIES_KEY);
             iSeries = new XYSeries(ChartConstants.I_SERIES_KEY);
             dSeries = new XYSeries(ChartConstants.D_SERIES_KEY);
         }
     }
 
-    /**
-     * Create a line chart based on the simulation data.
-     * @return the line chart
-     */
     public static JFreeChart createChart() {
         XYSeriesCollection seriesCollection = new XYSeriesCollection();
         seriesCollection.addSeries(positionSeries);
         seriesCollection.addSeries(pidOutputSeries);
         seriesCollection.addSeries(setpointSeries);
-        if (showPID) {
+        if (showPID.value) {
             seriesCollection.addSeries(pSeries);
             seriesCollection.addSeries(iSeries);
             seriesCollection.addSeries(dSeries);
@@ -69,14 +64,10 @@ public class ChartHandler {
         return chart;
     }
 
-    /**
-     * Sets up the line chart's style (i.e. color and line thickness).
-     * @param chart the chart to set up the style for
-     */
     private static void setChartRendererStyle(JFreeChart chart) {
         XYItemRenderer renderer = chart.getXYPlot().getRenderer();
 
-        for (int i = 0; i < (showPID ? 6 : 3); i++) {
+        for (int i = 0; i < (showPID.value ? 6 : 3); i++) {
             renderer.setSeriesStroke(i, new BasicStroke(ChartConstants.LINE_THICKNESS));
             renderer.setSeriesPaint(i, ChartConstants.LINE_CHART_COLORS[i]);
         }

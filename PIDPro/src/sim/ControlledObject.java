@@ -1,42 +1,39 @@
 package sim;
 
+import core.Constants.ParameterConstants;
 import params.ControllerParameter;
+import ui.windows.MainWindow;
+import params.ParameterBuilder;
 
 /**
  * This class handles the "controlled object", which can best be thought of as an
  * object (with velocity, friction, etc.) that is moved based on the PID controller's
  * output. However, its behavior is similar to that of other PID-controlled systems.
  */
-public class ControlledObject {
-    public static double minForce = 0;
-    public static double mass = 0;
-    public static double frictionCoefficient = 0;
-    public static double backgroundForce = 0;
+public class ControlledObject extends ParameterBuilder {
+    public static ControllerParameter<Double> minForce;
+    public static ControllerParameter<Double> mass;
+    public static ControllerParameter<Double> friction;
+    public static ControllerParameter<Double> backgroundForce;
 
     public static double position = 0;
     public static double velocity = 0;
 
-    /**
-     * Retrieves and updates the object's characteristics from its corresponding parameters.
-     */
-    public static void setObjectValues() {
-        minForce = ControllerParameter.getDouble("minForce");
-        mass = ControllerParameter.getDouble("mass");
-        frictionCoefficient = ControllerParameter.getDouble("friction");
-        backgroundForce = ControllerParameter.getDouble("bgForce");
+    public static void buildParameters(MainWindow window) {
+        minForce = buildDoubleParameter(window.minForceSlider, window.minForceText, ParameterConstants.DEFAULT_MIN_FORCE, C_OBJ);
+        mass = buildDoubleParameter(window.massSlider, window.massText, ParameterConstants.DEFAULT_MASS, C_OBJ);
+        friction = buildDoubleParameter(window.frictionSlider, window.frictionText, ParameterConstants.DEFAULT_FRICTION, C_OBJ);
+        backgroundForce = buildDoubleParameter(window.bgForceSlider, window.bgForceText, ParameterConstants.DEFAULT_BG_FORCE, C_OBJ);
+    }
 
+    public static void resetObjectKinematics() {
         position = 0;
         velocity = 0;
     }
 
-    /**
-     * Applies a force to the object and accordingly updates its velocity and position.
-     * @param force the force to apply
-     * @return the new position of the object rounded to three decimal places for simplicity and possible external use.
-     */
     public static double processPhysics(double force) {
-        force += backgroundForce;
-        if (Math.abs(force) < minForce) force = 0;
+        force += backgroundForce.value;
+        if (Math.abs(force) < minForce.value) force = 0;
 
         velocity += getDeltaTime() * calculateAcceleration(force);
         position += getDeltaTime() * velocity;
@@ -44,7 +41,7 @@ public class ControlledObject {
     }
 
     private static double calculateAcceleration(double force) {
-        return force / mass - frictionCoefficient * velocity;
+        return force / mass.value - friction.value * velocity;
     }
 
     public static double toThreeDecimalPlaces(double value) {

@@ -27,12 +27,12 @@ class PIDTest {
      * controller's errorSum, errorRate, and lastError.
      */
     private void pidInit() {
-        PID.kP = 1;
-        PID.kI = 1;
-        PID.kD = 1;
-        PID.errorSumThreshold = 1;
-        PID.setpoint = 1;
-        PID.maxOutput = 1;
+        PID.kP.value = 1.0;
+        PID.kI.value = 1.0;
+        PID.kD.value = 1.0;
+        PID.errorSumThreshold.value = 1.0;
+        PID.setpoint.value = 1;
+        PID.maxOutput.value = 1.0;
 
         PID.errorSum = 0;
         PID.errorRate = 0;
